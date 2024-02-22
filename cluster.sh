@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt-get install -y curl openssh-server vim 
+apt-get install -y curl openssh-server vim
 sed -e 's/^.*PermitRootLogin prohibit-password/PermitRootLogin yes/g' -i  /etc/ssh/sshd_config
-systemctl restart sshd 
+systemctl restart sshd
 systemctl disable --now ufw
 
 tee /etc/modules-load.d/containerd.conf <<EOF
@@ -53,10 +53,10 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B53DC80D13EDEF05
 
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-KUBE_VERSION=1.26.0
+KUBE_VERSION=1.27.0
 apt-get update
 
-apt-get install -y kubelet=${KUBE_VERSION}-00  kubeadm=${KUBE_VERSION}-00 kubectl=${KUBE_VERSION}-00 kubernetes-cni 
+apt-get install -y kubelet=${KUBE_VERSION}-00  kubeadm=${KUBE_VERSION}-00 kubectl=${KUBE_VERSION}-00 kubernetes-cni
 
 apt-mark hold kubelet kubeadm kubectl
 systemctl enable kubelet && systemctl start kubelet
