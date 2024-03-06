@@ -18,7 +18,7 @@
 
 <h2>4. Initializing the Control-Plane Node</h2>
 <p>Run the following command on the <strong>master node</strong>:</p>
-<pre>kubeadm init --kubernetes-version=${KUBE_VERSION}</pre>
+<pre>kubeadm init </pre>
 <p>Note: Copy the kubeadm join command & paste it on worker nodes.</p>
 
 <h2>5. Set Environment Variable on the Master Node</h2>
