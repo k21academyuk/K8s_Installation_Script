@@ -7,7 +7,7 @@
 
 <h2>1. Clone the Repository</h2>
 <pre>git clone https://github.com/k21academyuk/K8s_Installation_Script.git</pre>
-
+<pre>cd K8s_Installation_Script</pre>
 <h2>2. Make cluster.sh Executable</h2>
 <pre>chmod 777 cluster.sh</pre>
 
