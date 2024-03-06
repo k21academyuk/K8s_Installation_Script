@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt-get install -y curl openssh-server vim
+apt-get install -y curl openssh-server vim 
 sed -e 's/^.*PermitRootLogin prohibit-password/PermitRootLogin yes/g' -i  /etc/ssh/sshd_config
-systemctl restart sshd
+systemctl restart sshd 
 systemctl disable --now ufw
 
 tee /etc/modules-load.d/containerd.conf <<EOF
@@ -46,17 +46,17 @@ systemctl daemon-reload
 systemctl restart containerd
 systemctl enable containerd
 
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl
+apt-get update
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B53DC80D13EDEF05
 
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+apt-get install -y apt-transport-https ca-certificates curl
 
-KUBE_VERSION=1.27.0
-apt-get update
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.27/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-apt-get install -y kubelet=${KUBE_VERSION}-00  kubeadm=${KUBE_VERSION}-00 kubectl=${KUBE_VERSION}-00 kubernetes-cni
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.27/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-apt-mark hold kubelet kubeadm kubectl
-systemctl enable kubelet && systemctl start kubelet
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+systemctl enable kubelet 
