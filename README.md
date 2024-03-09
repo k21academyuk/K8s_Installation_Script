@@ -14,7 +14,7 @@
 <h2>3. Run the Script</h2>
 <pre>sh cluster.sh</pre>
 
-<p>Once you run the script, execute the following commands:</p>
+<p>Once you run the script in all nodes, execute the following commands:</p>
 
 <h2>4. Initializing the Control-Plane Node</h2>
 <p>Run the following command on the <strong>master node</strong>:</p>
