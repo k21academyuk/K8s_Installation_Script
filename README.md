@@ -38,7 +38,7 @@ echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> .bashrc
 kubectl get nodes
 </pre>
 
-<h2>6. Verify System Pods </h2>
+<h2>8. Verify System Pods </h2>
 <p>Verify the kube-system pods(coreDNS, ETCD, kubelet, etc ..)<strong>(master node)</strong>:</p>
 <pre>kubectl get pods -n kube-system</pre>
 
