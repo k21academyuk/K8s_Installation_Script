@@ -32,5 +32,17 @@ echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> .bashrc
 <p>Install Container Network Interface (CNI) so that pods can communicate across nodes and also Cluster DNS to start functioning. Apply Weavnet CNI on the <strong>master node</strong>:</p>
 <pre>kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml</pre>
 
+<h2>7. Node Status</h2>
+<p>Verify the staus of master & worker nodes<strong>(master node)</strong>:</p>
+<pre>
+kubectl get nodes
+</pre>
+
+<h2>6. Verify System Pods </h2>
+<p>Verify the kube-system pods(coreDNS, ETCD, kubelet, etc ..)<strong>(master node)</strong>:</p>
+<pre>kubectl get pods -n kube-system</pre>
+
+</body>
+</html>
 </body>
 </html>
