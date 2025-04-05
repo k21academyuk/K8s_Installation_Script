@@ -6,6 +6,7 @@
 <h1>Kubernetes Installation Instructions</h1>
 
 <h2>1. Clone the Repository</h2>
+<pre>sudo -i</pre>
 <pre>git clone https://github.com/k21academyuk/K8s_Installation_Script.git</pre>
 <pre>cd K8s_Installation_Script</pre>
 <h2>2. Make cluster.sh Executable</h2>
@@ -18,6 +19,7 @@
 
 <h2>4. Initializing the Control-Plane Node</h2>
 <p>Run the following command on the <strong>master node</strong>:</p>
+<pre>cd ~ </pre>
 <pre>kubeadm init </pre>
 <p>Note: Copy the kubeadm join command & paste it on worker nodes.</p>
 
